@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        AI Job Market Analyzer
+    </div>
+
+    <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('jobs') }}">Jobs</a>
+        <a href="{{ url_for('upload') }}">Upload Resume</a>
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>Job Search</h1>
+
+<form method="POST" class="card">
+
+    <input
+        type="text"
+        name="keyword"
+        placeholder="Search Job Role">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+ <div class="grid">
+
+{% for job in jobs %}
+
+<div class="card">
+
+    <h2>{{ job.title }}</h2>
+
+    <p>Location: {{ job.location }}</p>
+
+    <p>Experience: {{ job.experience }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<footer>
+    AI Job Market Analyzer | Powered by Artificial Intelligence
+</footer>
+
+</body>
+</html>

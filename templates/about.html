@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+AI Job Market Analyzer
+</div>
+
+<div class="nav-links">
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('dashboard') }}">Dashboard</a>
+<a href="{{ url_for('jobs') }}">Jobs</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h1>About AI Job Market Analyzer</h1>
+
+<p>
+AI Job Market Analyzer is a web application that analyzes resumes,
+detects technical skills, and predicts suitable job roles using
+Machine Learning.
+</p>
+
+<h2>Key Features</h2>
+
+<ul>
+<li>Resume Upload</li>
+<li>PDF Text Extraction</li>
+<li>Skill Detection</li>
+<li>AI Job Role Prediction</li>
+<li>Job Search</li>
+<li>Dashboard Analytics</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+AI Job Market Analyzer | Powered by Artificial Intelligence
+
+</footer>
+
+</body>
+
+</html>
