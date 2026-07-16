@@ -128,6 +128,12 @@ def login():
 def logout():
     return redirect(url_for("login"))
 
+# ---------------- Profile ----------------
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
 # ---------------- About ----------------
 
 @app.route("/about")
@@ -186,17 +192,26 @@ def predict():
         1 if "Flask" in skills else 0,
         1 if "SQL" in skills else 0
     ]]
-
     prediction = model.predict(features)
     predicted_role = label_encoder.inverse_transform(prediction)[0]
+
+    # -------- Resume Score --------
+
+    total_skills = 6
+    detected_skills = len(skills)
+
+    resume_score = int((detected_skills / total_skills) * 100)
+
+    if resume_score > 100:
+        resume_score = 100
 
     return render_template(
         "result.html",
         resume_text=text,
         skills=skills,
-        predicted_role=predicted_role
+        predicted_role=predicted_role,
+        resume_score=resume_score
     )
-
 
 # ---------------- Run ----------------
 
